@@ -1,13 +1,16 @@
 import pygame, random, time
 pygame.init()
-# man copilotam esma ro farsi gozashtam ke kesi shak nakone :)))
 TOOL, ARZ = 1600, 900
 disp = pygame.display.set_mode((TOOL, ARZ))
 icon = pygame.image.load('bazi_icon.png')
 pygame.display.set_icon(icon)
 pygame.display.set_caption('منو') 
-background_music = pygame.mixer.Sound('lorestani_oioi.mp3')
+background_music = pygame.mixer.Sound('oiia_space.mp3')
 background_music.play()
+bg = pygame.image.load("background.jpg")
+disp.blit(bg, (0, 0))
+cour = pygame.font.Font('Lato-Regular.ttf', 40)
+
 
 ########### منو ################
 
@@ -21,6 +24,11 @@ while notdone:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
                 notdone = False
+                
+    text = cour.render('Press ESC to go to the game', True, (255,0,0))
+    disp.blit(bg, (0, 0))
+    disp.blit(text, (200,200)) 
+    pygame.display.update()
 
 
 pygame.quit()
@@ -33,7 +41,6 @@ disp = pygame.display.set_mode((TOOL, ARZ))
 icon = pygame.image.load('bazi_icon.png')
 pygame.display.set_icon(icon)
 pygame.display.set_caption('آدم فضایی ها را بکش') 
-bg = pygame.image.load("background.jpg")
 disp.blit(bg, (0, 0))
 tofang1 = pygame.image.load('gun1.png', "")
 tofang1_w, tofang1_h = TOOL // 20 * 3, ARZ // 20 * 3
